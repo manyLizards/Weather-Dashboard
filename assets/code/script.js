@@ -12,15 +12,12 @@ var APIKey = "f299a5114970c339b29accfb86e8b629"
 function searchFunc (event) {
     event.preventDefault()
     input = input.value
-    console.log(input);
-    var weatherURL = "api.openweathermap.org/data/2.5/forecast?q=" + input + "&appid=" + APIKey
+    var coordinatesURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + input + "&limit=" + 1 + "&appid=" + APIKey
     //input goes to search history
     //current and future weather conditions are presented 
-    $.ajax({
-        url: weatherURL,
-        method: 'GET',
-    }).then(function (response) {
-        console.log('AjaxResponse: ' + response);
+    fetch(coordinatesURL)
+    .then (function(response) {
+        console.log(response.json())
     })
 }
 
