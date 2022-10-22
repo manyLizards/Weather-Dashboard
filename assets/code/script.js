@@ -38,12 +38,11 @@ function searchFunc (event) {
                 var icon = document.createElement("img");
 
                 //add temperature
-                var temp = document.createElement(""
-                )
+                var temp = document.createElement("li")
                 //add humidity
-
+                var humidity = document.createElement("li")
                 //add wind speed
-
+                var windSpeed = document.createElement("li")
             })
         }
     }
