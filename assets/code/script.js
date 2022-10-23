@@ -4,7 +4,17 @@ var searchBtn = document.querySelector("#search");
 var searchHist = document.querySelector("#search-history");
 var cityCurrent = document.querySelector("#city-current");
 var forecast = document.querySelector("#five-day-forecast");
-var currentParamenters = document.querySelector("#current-parameters");
+var currentParameters = document.querySelector("#current-parameters");
+var firstParameters = document.querySelector("#first-parameters")
+var secondParameters = document.querySelector("#second-parameters")
+var thirdParameters = document.querySelector("#third-parameters")
+var fourthParameters = document.querySelector("#fourth-parameters")
+var fifthParameters = document.querySelector("#fifth-parameters")
+var first = document.querySelector("#first")
+var second = document.querySelector("#second")
+var third = document.querySelector("#third")
+var fourth = document.querySelector("#fourth")
+var fifth = document.querySelector("#fifth")
 
 //create variable for API key
 var APIKey = "f299a5114970c339b29accfb86e8b629"
@@ -42,18 +52,44 @@ function searchFunc (event) {
 
                 //add temperature
                 var temp = document.createElement("li")
-                currentParamenters.appendChild(temp)
+                currentParameters.appendChild(temp)
                 temp.innerHTML = data.list[0].main.temp
 
                 //add humidity
                 var humidity = document.createElement("li")
-                currentParamenters.appendChild(humidity)
+                currentParameters.appendChild(humidity)
                 humidity.innerHTML = data.list[0].main.humidity
 
                 //add wind speed
                 var windSpeed = document.createElement("li")
-                currentParamenters.appendChild(windSpeed)
+                currentParameters.appendChild(windSpeed)
                 windSpeed.innerHTML = data.list[0].wind.speed
+
+                //First future weather conditions
+
+                //date
+                var dateFirst = 
+                document.createElement("h4");
+                first.appendChild(dateFirst);
+                dateFirst.innerHTML = data.list[1].dt_txt
+
+                //add icon representation of weather conditions
+                var iconFirst = document.createElement("img");
+
+                //add temperature
+                var tempFirst = document.createElement("li")
+                firstParameters.appendChild(tempFirst)
+                tempFirst.innerHTML = data.list[1].main.temp
+
+                //add humidity
+                var humidityFirst = document.createElement("li")
+                firstParameters.appendChild(humidity)
+                humidityFirst.innerHTML = data.list[1].main.humidity
+
+                //add wind speed
+                var windSpeedFirst = document.createElement("li")
+                firstParameters.appendChild(windSpeedFirst)
+                windSpeedFirst.innerHTML = data.list[1].wind.speed
             })
         }
     }
