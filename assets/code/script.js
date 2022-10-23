@@ -35,7 +35,7 @@ function searchFunc (event) {
                 var date = 
                 document.createElement("h3");
                 cityName.appendChild(date);
-                // date.innerHTML = 
+                date.innerHTML = data.list[0].dt_txt
 
                 //add icon representation of weather conditions
                 var icon = document.createElement("img");
@@ -43,15 +43,17 @@ function searchFunc (event) {
                 //add temperature
                 var temp = document.createElement("li")
                 currentParamenters.appendChild(temp)
-
+                temp.innerHTML = data.list[0].main.temp
 
                 //add humidity
                 var humidity = document.createElement("li")
                 currentParamenters.appendChild(humidity)
+                humidity.innerHTML = data.list[0].main.humidity
 
                 //add wind speed
                 var windSpeed = document.createElement("li")
                 currentParamenters.appendChild(windSpeed)
+                windSpeed.innerHTML = data.list[0].wind.speed
             })
         }
     }
