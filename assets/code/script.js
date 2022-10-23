@@ -4,6 +4,7 @@ var searchBtn = document.querySelector("#search");
 var searchHist = document.querySelector("#search-history");
 var cityCurrent = document.querySelector("#city-current");
 var forecast = document.querySelector("#five-day-forecast");
+var currentParamenters = document.querySelector("#current-parameters");
 
 //create variable for API key
 var APIKey = "f299a5114970c339b29accfb86e8b629"
@@ -24,10 +25,12 @@ function searchFunc (event) {
             response.json()
             .then (function(data) {
                 console.log(data)
+
                 //add city name
                 var cityName = document.createElement("h2");
                 cityName.innerHTML = data.city.name
                 cityCurrent.appendChild(cityName);
+
                 //add date
                 var date = 
                 document.createElement("h3");
@@ -39,10 +42,16 @@ function searchFunc (event) {
 
                 //add temperature
                 var temp = document.createElement("li")
+                currentParamenters.appendChild(temp)
+
+
                 //add humidity
                 var humidity = document.createElement("li")
+                currentParamenters.appendChild(humidity)
+
                 //add wind speed
                 var windSpeed = document.createElement("li")
+                currentParamenters.appendChild(windSpeed)
             })
         }
     }
