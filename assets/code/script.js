@@ -26,9 +26,14 @@ function futureWeather (data) {
     //create for loop that picks 5 indexes off the array at 24 hr intervals
     for (var i = 2; i < data.list.length; i += 8) {
         console.log(data.list[i])
-        var headingEl = document.createElement("h3")
-        headingEl.innerText = "didgeridoo"
-        forecast.appendChild(headingEl)
+        //create a div to contain individual day forecast
+        var card = document.createElement("div");
+        //create variables for individual elements within the card
+        var dateEl = document.createElement("h3")
+        var tempEl = document.createElement("p")
+        var humidityEl = document.createElement("p")
+        var windSpeedEl = document.createElement("p")
+        var iconEl = document.createElement("img")
     }
 }
 
@@ -57,11 +62,13 @@ function searchFunc (event) {
                 //add date
                 var date = 
                 document.createElement("h3");
-                cityName.appendChild(date);
+                cityCurrent.appendChild(date);
                 date.innerHTML = data.list[0].dt_txt
 
                 //add icon representation of weather conditions
                 var icon = document.createElement("img");
+                icon.setAttribute("src", "http://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + "@2x.png")
+                cityCurrent.appendChild(icon)
 
                 //add temperature
                 var temp = document.createElement("li")
