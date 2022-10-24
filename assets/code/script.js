@@ -5,11 +5,7 @@ var searchHist = document.querySelector("#search-history");
 var cityCurrent = document.querySelector("#city-current");
 var forecast = document.querySelector("#five-day-forecast");
 var currentParameters = document.querySelector("#current-parameters");
-var firstParameters = document.querySelector("#first-parameters")
-var secondParameters = document.querySelector("#second-parameters")
-var thirdParameters = document.querySelector("#third-parameters")
-var fourthParameters = document.querySelector("#fourth-parameters")
-var fifthParameters = document.querySelector("#fifth-parameters")
+
 //create an empty array for search history
 var searchHistory = []
 
@@ -25,6 +21,7 @@ function futureWeather (data) {
         console.log(data.list[i])
         //create a div to contain individual day forecast
         var card = document.createElement("div");
+        forecast.appendChild(card)
         //create variables for individual elements within the card
         var dateEl = document.createElement("h3")
         card.appendChild(dateEl);
