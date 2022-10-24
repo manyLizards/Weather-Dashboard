@@ -15,6 +15,8 @@ var second = document.querySelector("#second")
 var third = document.querySelector("#third")
 var fourth = document.querySelector("#fourth")
 var fifth = document.querySelector("#fifth")
+//create an empty array for search history
+var searchHistory = []
 
 //create variable for API key
 var APIKey = "f299a5114970c339b29accfb86e8b629"
@@ -34,6 +36,17 @@ function futureWeather (data) {
         var humidityEl = document.createElement("p")
         var windSpeedEl = document.createElement("p")
         var iconEl = document.createElement("img")
+    }
+}
+
+//Create function that checks local storage for search history on page load
+function getSearchHistory () {
+    //check to see if there's local storage
+    if (!localStorage.getItem("search-history")) {
+        console.log("fiojew")
+    } else {
+        searchHistory = JSON.parse(localStorage.getItem("search-history"))
+        console.log(searchHistory)
     }
 }
 
@@ -58,6 +71,13 @@ function searchFunc (event) {
                 var cityName = document.createElement("h2");
                 cityName.innerHTML = data.city.name
                 cityCurrent.appendChild(cityName);
+
+                //commit city to local storage
+                searchHistory.push(input)
+                console.log(searchHistory)
+
+                //push searchhistory array into local storage
+                localStorage.setItem("search-history", JSON.stringify(searchHistory))
 
                 //add date
                 var date = 
@@ -121,3 +141,5 @@ function searchFunc (event) {
 
 //make search button search
 searchBtn.addEventListener("click", searchFunc);
+//get search history from local storage
+getSearchHistory()
