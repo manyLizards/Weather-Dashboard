@@ -10,11 +10,6 @@ var secondParameters = document.querySelector("#second-parameters")
 var thirdParameters = document.querySelector("#third-parameters")
 var fourthParameters = document.querySelector("#fourth-parameters")
 var fifthParameters = document.querySelector("#fifth-parameters")
-var first = document.querySelector("#first")
-var second = document.querySelector("#second")
-var third = document.querySelector("#third")
-var fourth = document.querySelector("#fourth")
-var fifth = document.querySelector("#fifth")
 //create an empty array for search history
 var searchHistory = []
 
@@ -32,10 +27,20 @@ function futureWeather (data) {
         var card = document.createElement("div");
         //create variables for individual elements within the card
         var dateEl = document.createElement("h3")
+        card.appendChild(dateEl);
+        dateEl.innerHTML = data.list[i].dt_txt
         var tempEl = document.createElement("p")
+        card.appendChild(tempEl)
+        tempEl.innerHTML = "Temperature in Kelvin: " + data.list[i].main.temp
         var humidityEl = document.createElement("p")
+        card.appendChild(humidityEl)
+        humidityEl.innerHTML = "Humidity: " + data.list[i].main.humidity + "%"
         var windSpeedEl = document.createElement("p")
+        card.appendChild(windSpeedEl)
+        windSpeedEl.innerHTML = "Wind speed: " + data.list[i].wind.speed + "mph"
         var iconEl = document.createElement("img")
+        iconEl.setAttribute("src", "http://openweathermap.org/img/wn/" + data.list[i].weather[0].icon + "@2x.png")
+        card.appendChild(iconEl)
     }
 }
 
@@ -43,11 +48,10 @@ function futureWeather (data) {
 function getSearchHistory () {
     //check to see if there's local storage
     if (!localStorage.getItem("search-history")) {
-        console.log("fiojew")
+        console.log("herpmerp")
     } else {
         searchHistory = JSON.parse(localStorage.getItem("search-history"))
         console.log(searchHistory)
-
     }
 }
 
@@ -109,35 +113,6 @@ function searchFunc (event) {
                 var windSpeed = document.createElement("li")
                 currentParameters.appendChild(windSpeed)
                 windSpeed.innerHTML = "Wind speed: " + data.list[0].wind.speed + "mph"
-
-                // //First future weather conditions
-
-                // //date
-                // var dateFirst = 
-                // document.createElement("h4");
-                // console.log(first)
-                // first.appendChild(dateFirst);
-                // dateFirst.innerHTML = data.list[1].dt_txt
-
-                // //add icon representation of weather conditions
-                // var iconFirst = document.createElement("img");
-
-                // //add temperature
-                // var tempFirst = document.createElement("li")
-                // firstParameters.appendChild(tempFirst)
-                // tempFirst.innerHTML = data.list[1].main.temp
-
-                // //add humidity
-                // var humidityFirst = document.createElement("li")
-                // firstParameters.appendChild(humidity)
-                // humidityFirst.innerHTML = data.list[1].main.humidity
-
-                // //add wind speed
-                // var windSpeedFirst = document.createElement("li")
-                // firstParameters.appendChild(windSpeedFirst)
-                // windSpeedFirst.innerHTML = data.list[1].wind.speed
-
-                //call a function to display future weather conditions
                 futureWeather(data)
             })
         }
