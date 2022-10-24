@@ -47,6 +47,7 @@ function getSearchHistory () {
     } else {
         searchHistory = JSON.parse(localStorage.getItem("search-history"))
         console.log(searchHistory)
+
     }
 }
 
@@ -73,10 +74,14 @@ function searchFunc (event) {
                 cityCurrent.appendChild(cityName);
 
                 //commit city to local storage
-                searchHistory.push(input)
+                var i=0; i<searchHistory.length; i++
+                if (searchHistory[i] !== input) {
+                    searchHistory.push(input)
+                }
+                
                 console.log(searchHistory)
 
-                //push searchhistory array into local storage
+                //push search history array into local storage
                 localStorage.setItem("search-history", JSON.stringify(searchHistory))
 
                 //add date
