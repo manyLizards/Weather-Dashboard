@@ -18,10 +18,10 @@ function futureWeather (data) {
     
     //create for loop that picks 5 indexes off the array at 24 hr intervals
     for (var i = 2; i < data.list.length; i += 8) {
-        console.log(data.list[i])
         //create a div to contain individual day forecast
         var card = document.createElement("div");
         forecast.appendChild(card)
+        card.classList.add('card')
         //create variables for individual elements within the card
         var dateEl = document.createElement("h3")
         card.appendChild(dateEl);
@@ -77,10 +77,11 @@ function searchFunc (event) {
                 //commit city to local storage
                 var i=0; i<searchHistory.length; i++
                 if (searchHistory[i] !== input) {
-                    searchHistory.push(input)
+                    searchHistory.push(input);
+                    var history = document.createElement("button");
+                    history.innerText = input;
+                    searchHist.appendChild(history);
                 }
-                
-                console.log(searchHistory)
 
                 //push search history array into local storage
                 localStorage.setItem("search-history", JSON.stringify(searchHistory))
