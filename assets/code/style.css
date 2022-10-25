@@ -1,0 +1,18 @@
+:root {
+--green: #87BBA2;
+--white: #F0F7EE;
+--yellow: #FFF07C;
+--gray: #5D737E;
+}
+
+body {
+    background-color: var(--white);
+}
+
+.card {
+    background-color: var(--green);
+}
+
+#city-current {
+    background-color: var(--yellow);
+}
