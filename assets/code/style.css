@@ -16,3 +16,8 @@ body {
 #city-current {
     background-color: var(--yellow);
 }
+
+button {
+    background-color: var(--gray);
+    color: var(--white);
+}

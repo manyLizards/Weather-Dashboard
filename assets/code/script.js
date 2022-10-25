@@ -4,7 +4,6 @@ var searchBtn = document.querySelector("#search");
 var searchHist = document.querySelector("#search-history");
 var cityCurrent = document.querySelector("#city-current");
 var forecast = document.querySelector("#five-day-forecast");
-var currentParameters = document.querySelector("#current-parameters");
 
 //create an empty array for search history
 var searchHistory = []
@@ -77,10 +76,10 @@ function searchFunc (event) {
                 //commit city to local storage
                 var i=0; i<searchHistory.length; i++
                 if (searchHistory[i] !== input) {
-                    searchHistory.push(input);
+                    searchHistory.push(input)
                     var history = document.createElement("button");
-                    history.innerText = input;
-                    searchHist.appendChild(history);
+                    history.innerText = input
+                    searchHist.appendChild(history)
                 }
 
                 //push search history array into local storage
@@ -98,18 +97,18 @@ function searchFunc (event) {
                 cityCurrent.appendChild(icon)
 
                 //add temperature
-                var temp = document.createElement("li")
-                currentParameters.appendChild(temp)
+                var temp = document.createElement("p")
+                cityCurrent.appendChild(temp)
                 temp.innerHTML = "Temperature in Kelvin: " + data.list[0].main.temp
 
                 //add humidity
-                var humidity = document.createElement("li")
-                currentParameters.appendChild(humidity)
+                var humidity = document.createElement("p")
+                cityCurrent.appendChild(humidity)
                 humidity.innerHTML = "Humidity: " + data.list[0].main.humidity + "%"
 
                 //add wind speed
-                var windSpeed = document.createElement("li")
-                currentParameters.appendChild(windSpeed)
+                var windSpeed = document.createElement("p")
+                cityCurrent.appendChild(windSpeed)
                 windSpeed.innerHTML = "Wind speed: " + data.list[0].wind.speed + "mph"
                 futureWeather(data)
             })
