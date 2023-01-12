@@ -1,9 +1,9 @@
 # Weather Dashboard App
 
-##Description
+## Description
 This assignment was a fantastic opportunity to get accumulated with local storage and API's. Using this app, you can request current and future weather conditions in any city that you search, as long as that city is within the US. I learned how to utilize API documentation to my advantage, and how to read the data that you call into the app. I intend on touching up the CSS once I have time. Possibly utilizing Bootstrap or Tailwind.
 
-##Table of Contents
+## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
 - [Credits](#credits)
